@@ -33,9 +33,14 @@ contract ShameCoin is ERC20, Ownable {
             transfer(_to, 1);
             return true;
         }
-        //add 1 to msg.sender's balance
+        //need to add 1 to msg.sender's balance
         return false;
     }
+
+    //need to add allowance functionality
+    //need to add transferfrom function
+    //need to write unit test
+    //need to document with natspec
 
     function decimals() public view virtual override returns (uint8) {
         return 0;
