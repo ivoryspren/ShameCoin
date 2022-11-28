@@ -19,7 +19,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract ShameCoin is ERC20 {
 
-    address immutable admin;
+    address public immutable admin;
 
     /**
     * @dev Sets the name and symbold of this token
@@ -66,7 +66,8 @@ contract ShameCoin is ERC20 {
     * @dev transferFrom requirements:
     * 'from' address has to have a balance >= 'amount'
     * caller has to have an allowance for 'from' balance of >= 'amount'
-    * 'from' address increases by 1
+    * 'from' address decreases by 1
+    * nothing happens to the 'to' address balance;
     */
     function transferFrom(address from, address to, uint256 amount) public virtual override returns (bool) {
         address spender = _msgSender();
